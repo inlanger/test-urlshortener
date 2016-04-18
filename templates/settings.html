@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <h3>Original link: <a href="{{ link_entry.url }}" target="_blank">{{ link_entry.url }}</a></h3>
+        <h3>Link author:</h3>
+        <ul>
+            <li>username: {{ link_entry.user.username }}</li>
+            <li>first_name: {{ link_entry.user.first_name }}</li>
+            <li>last_name: {{ link_entry.user.last_name }}</li>
+            <li>email: {{ link_entry.user.email }}</li>
+            <li>date_joined: {{ link_entry.user.date_joined }}</li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

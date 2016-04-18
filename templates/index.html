@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block extra_css %}
+<style>
+    form {
+        padding-top: 20%;
+    }
+</style>
+{% endblock %}
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <form action="{% url "index" %}" method="POST">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="input-group input-group-lg">
+                        {{ form.url }}
+                        <div class="input-group-btn">
+                            <button type="submit" class="btn">Do magic</button>
+                        </div><!-- /btn-group -->
+                    </div><!-- /input-group -->
+                </div><!-- /.col-xs-12 -->
+            </div><!-- /.row -->
+        </form>
+    </div>
+</div>
+{% if instance %}
+    <div class="col-md-12">
+        <h3>
+            <!-- TODO: Url generator -->
+            Your awesome short link is: <a href="{% url "link" instance.key %}" target="_blank">http://{{ request.get_host }}{% url "link" instance.key %}</a>
+        </h3>
+    </div>
+{% endif %}
+{% endblock %}
